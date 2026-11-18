@@ -12,6 +12,7 @@ export default {
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
+        heading: ['Allura', 'cursive'],
         script: ['Herr Von Muellerhoff', 'Great Vibes', 'cursive'],
       },
     },

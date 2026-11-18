@@ -15,10 +15,12 @@ import {
   MapPin,
   MessageCircle,
   Menu,
+  Star,
   Phone,
   Sparkles,
   X,
 } from 'lucide-react'
+import headsLogo from './assets/images/heads-logo.png'
 
 const BUSINESS = {
   name: 'Heads Hair Studio',
@@ -111,18 +113,21 @@ const SERVICES = [
   },
 ]
 
-const REVIEW_PLACEHOLDERS = [
+const CLIENT_REVIEWS = [
   {
-    label: 'REVIEW PLACEHOLDER 01',
-    copy: 'Replace this space with a real, approved client review before publishing.',
+    name: 'Suria Corver',
+    rating: 5,
+    copy: '“So since 2003 this has been my muse for hair styling. Been out of town for 6 odd years. Then forward to 2026... What a pleasure returning to Bloemfontein and knowing where to go for a feel good experience. Thank you Christelle and Team!! Always a pleasure to visit!”',
   },
   {
-    label: 'REVIEW PLACEHOLDER 02',
-    copy: 'Add a verified client story here when one is available.',
+    name: 'Chanelle Du Preez',
+    rating: 5,
+    copy: "“What an absolutely amazing experience, my hair looks better than I wanted and expected... many thanks to the lovely staff with their top knowledge and welcoming presence. I won't go anywhere else!”",
   },
   {
-    label: 'REVIEW PLACEHOLDER 03',
-    copy: 'This is placeholder copy, not a client testimonial.',
+    name: 'Pieter Welsh',
+    rating: 5,
+    copy: '“Very friendly people. Make you feel at home and do as you ask and share suggestions. Great place to visit.”',
   },
 ]
 
@@ -237,9 +242,8 @@ function Header() {
 
   return (
     <header className="site-header">
-      <a className="wordmark" href="#home" aria-label="Heads Hair Studio home">
-        <span className="wordmark__name">HEADS</span>
-        <span className="wordmark__sub">HAIR STUDIO</span>
+      <a className="wordmark wordmark--header" href="#home" aria-label="Heads Hair Studio home">
+        <img className="wordmark__image" src={headsLogo} alt="" />
       </a>
 
       <nav className="desktop-nav" aria-label="Main navigation">
@@ -517,12 +521,11 @@ function Gallery() {
 
 function Testimonials() {
   const [activeReview, setActiveReview] = useState(0)
-  const review = REVIEW_PLACEHOLDERS[activeReview]
+  const review = CLIENT_REVIEWS[activeReview]
 
   function moveReview(direction) {
     setActiveReview((current) =>
-      (current + direction + REVIEW_PLACEHOLDERS.length) %
-      REVIEW_PLACEHOLDERS.length,
+      (current + direction + CLIENT_REVIEWS.length) % CLIENT_REVIEWS.length,
     )
   }
 
@@ -534,28 +537,37 @@ function Testimonials() {
     >
       <div className="container testimonials-layout">
         <Reveal className="testimonials-heading">
-          <SectionHeading title="Kind words, soon." align="left">
-            A space for the voices of the people who sit in our chairs.
+          <SectionHeading title="From our clients." align="left">
+            A few words shared by people who have visited the studio.
           </SectionHeading>
         </Reveal>
         <Reveal className="review-carousel" delay={0.12}>
           {/* REACTBITES: swap in an accessible animated review carousel here */}
           <div className="review-carousel__top">
-            <span id="reviews-title">{review.label}</span>
+            <span id="reviews-title">CLIENT REVIEW</span>
             <span>
               {String(activeReview + 1).padStart(2, '0')} /{' '}
-              {String(REVIEW_PLACEHOLDERS.length).padStart(2, '0')}
+              {String(CLIENT_REVIEWS.length).padStart(2, '0')}
             </span>
           </div>
-          <blockquote key={review.label}>{review.copy}</blockquote>
-          <p className="review-carousel__note">
-            Placeholder review — no customer quote has been supplied.
-          </p>
+          <div
+            className="review-carousel__rating"
+            role="img"
+            aria-label={`${review.rating} out of 5 stars`}
+          >
+            {Array.from({ length: review.rating }, (_, index) => (
+              <Star key={index} aria-hidden="true" size={15} strokeWidth={1.4} />
+            ))}
+          </div>
+          <blockquote key={review.name} aria-live="polite" aria-atomic="true">
+            {review.copy}
+          </blockquote>
+          <p className="review-carousel__author">{review.name}</p>
           <div className="review-carousel__controls">
             <button
               type="button"
               className="round-control"
-              aria-label="Previous review placeholder"
+              aria-label="Previous client review"
               onClick={() => moveReview(-1)}
             >
               <ArrowLeft aria-hidden="true" size={17} />
@@ -563,7 +575,7 @@ function Testimonials() {
             <button
               type="button"
               className="round-control"
-              aria-label="Next review placeholder"
+              aria-label="Next client review"
               onClick={() => moveReview(1)}
             >
               <ArrowRight aria-hidden="true" size={17} />

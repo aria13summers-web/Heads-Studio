@@ -16,6 +16,7 @@
   --smoke: #a6a6a6;
   --ivory: #f1efea;
   --gold: #be922f;
+  --font-heading: 'Allura', cursive;
   --font-script: 'Herr Von Muellerhoff', 'Great Vibes', cursive;
   --font-body: 'Montserrat', sans-serif;
   --page-gutter: clamp(1.25rem, 5.5vw, 6rem);
@@ -167,10 +168,12 @@ textarea {
 .section-heading h2 {
   max-width: 13ch;
   color: var(--ivory);
-  font-size: clamp(2.2rem, 4.2vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.12;
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.32);
   text-wrap: balance;
 }
 
@@ -290,7 +293,7 @@ textarea {
   gap: 2rem;
   padding-inline: var(--page-gutter);
   border-bottom: 1px solid rgba(241, 239, 234, 0.09);
-  background: rgba(24, 24, 24, 0.97);
+  background: #000;
 }
 
 .wordmark {
@@ -301,6 +304,23 @@ textarea {
   align-items: flex-start;
   justify-content: center;
   line-height: 1;
+}
+
+.wordmark--header {
+  width: clamp(7rem, 11vw, 9.5rem);
+  height: calc(var(--header-height) - 0.5rem);
+  min-height: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wordmark__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .wordmark__name {
@@ -442,11 +462,12 @@ textarea {
 .hero__title {
   margin-top: 1.7rem;
   color: var(--ivory);
-  font-family: var(--font-script);
-  font-size: clamp(5.6rem, 10.2vw, 10.25rem);
+  font-family: var(--font-heading);
+  font-size: clamp(5.6rem, 8vw, 8.5rem);
   font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 0.78;
+  letter-spacing: 0;
+  line-height: 1.05;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.36);
   text-wrap: balance;
 }
 
@@ -897,9 +918,20 @@ textarea {
   letter-spacing: 0.16em;
 }
 
+.review-carousel__rating {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 1.6rem;
+  color: var(--gold);
+}
+
+.review-carousel__rating svg {
+  fill: currentColor;
+}
+
 .review-carousel blockquote {
-  min-height: 8rem;
-  margin-top: 2rem;
+  min-height: 0;
+  margin-top: 1rem;
   color: var(--ivory);
   font-size: clamp(1.3rem, 2.4vw, 2.2rem);
   font-weight: 500;
@@ -908,10 +940,12 @@ textarea {
   text-wrap: balance;
 }
 
-.review-carousel__note {
-  color: #e0cacc;
-  font-size: 0.7rem;
-  line-height: 1.6;
+.review-carousel__author {
+  margin-top: 1rem;
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .review-carousel__controls {
@@ -1433,7 +1467,7 @@ textarea {
     flex-direction: column;
     padding: 0.7rem var(--page-gutter) 1.2rem;
     border-bottom: 1px solid rgba(190, 146, 47, 0.55);
-    background: #181818;
+    background: #000;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-0.5rem);
@@ -1609,7 +1643,8 @@ textarea {
   }
 
   .section-heading h2 {
-    font-size: clamp(2.25rem, 9vw, 3.2rem);
+    font-size: clamp(2.5rem, 9vw, 3.2rem);
+    line-height: 1.2;
   }
 
   .section-heading p {
@@ -1771,7 +1806,6 @@ textarea {
   }
 
   .review-carousel blockquote {
-    min-height: 7rem;
     margin-top: 1.5rem;
     font-size: 1.48rem;
   }
@@ -1917,4 +1951,21 @@ textarea {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+body {
+  cursor: url('/scissors-cursor.svg') 16 16, auto;
+}
+
+a,
+button,
+select,
+[role='button'],
+.button {
+  cursor: url('/scissors-cursor.svg') 16 16, pointer;
+}
+
+input,
+textarea {
+  cursor: text;
 }
