@@ -18,7 +18,7 @@ Bloemfontein residents seeking styling, colour, grooming, or occasion services. 
 ## Direction contract
 
 THESIS: A dark, premium salon atelier makes the studio and its contact path unmistakable; no generic price-led salon template.
-OWN-WORLD: Charcoal and burgundy fields, warm ivory type, fine gold rules, Montserrat utility text, and a graceful Herr Von Muellerhoff script accent.
+OWN-WORLD: Charcoal and burgundy fields, warm ivory type, fine gold rules, Montserrat utility text, and a graceful Great Vibes script accent.
 STORY: Discover the studio, explore its services and client-story placeholders, then book or plan a visit.
 FIRST VIEWPORT: A full-height charcoal hero pairs oversized script typography and two clear actions on the left with a cropped editorial hair portrait on the right; the sticky wordmark navigation stays legible above it.
 FORM: User-pinned dark salon editorial direction; it overrides the unrelated rolled origami form. Keep the requested anchor navigation and clean, uncluttered section sequence.

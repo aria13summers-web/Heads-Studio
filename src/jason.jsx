@@ -21,6 +21,7 @@ import {
   X,
 } from 'lucide-react'
 import headsLogo from './assets/images/heads-logo.png'
+import headsHair from './assets/images/heads-hair.jpg'
 
 const BUSINESS = {
   name: 'Heads Hair Studio',
@@ -74,7 +75,7 @@ const BUSINESS = {
 
 const IMAGES = {
   // Unsplash stock placeholders; replace with original studio photography.
-  hero: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1500&q=85',
+  hero: headsHair,
   about:
     'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1100&q=85',
   gallery: [

@@ -22,9 +22,9 @@ npm run dev
 
 ## Brand assets
 
-Place the Herr Von Muellerhoff WOFF2 font at
-`public/fonts/HerrVonMuellerhoff-Regular.woff2`. Great Vibes is already loaded
-as the script fallback; Montserrat is loaded from Google Fonts.
+Great Vibes, a free font licensed under the SIL Open Font License, is loaded
+from Google Fonts and used for the script accent. Montserrat is also loaded
+from Google Fonts.
 
 Replace the Unsplash image URLs in the `IMAGES` object in `src/jason.jsx` with
 Heads Hair Studio photographs. Replace the explicitly labelled review

@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Herr Von Muellerhoff';
-  src: url('/fonts/HerrVonMuellerhoff-Regular.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
 :root {
   --burgundy: #72090f;
   --charcoal: #181818;
@@ -17,7 +9,7 @@
   --ivory: #f1efea;
   --gold: #be922f;
   --font-heading: 'Allura', cursive;
-  --font-script: 'Herr Von Muellerhoff', 'Great Vibes', cursive;
+  --font-script: 'Great Vibes', cursive;
   --font-body: 'Montserrat', sans-serif;
   --page-gutter: clamp(1.25rem, 5.5vw, 6rem);
   --content-width: 82rem;
